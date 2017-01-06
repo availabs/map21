@@ -1,4 +1,5 @@
 import React from 'react'
+import './DropDown.scss'
 
 class Dropdown extends React.Component {
   constructor (props) {
@@ -25,13 +26,13 @@ class Dropdown extends React.Component {
   render () {
     return (
       <div className='btn-group'>
-        <a button className='btn btn-primary dropdown-toggle' aria-expanded={this.state.open} onClick={this.toggle}>
+        <button className='btn btn-primary dropdown-toggle' aria-expanded={this.state.open} onClick={this.toggle}>
           {this.props.prefix} {this.props.selected}
-        </a>
+        </button>
         <div className='dropdown-menu' style={{ display: this.state.open ? 'block' : 'none' }}>
-          {this.props.options.map(d => {
+          {this.props.options.map((d, i) => {
             return (
-              <a className='dropdown-item' onClick={this.setSelected.bind(null, d)} href='#'>{d}</a>
+              <a key={i} className='dropdown-item' onClick={this.setSelected.bind(null, d)} href='#'>{d}</a>
             )
           })}
 
