@@ -1,0 +1,30 @@
+.pricing-card .price h1 {
+  font-size: 5rem;
+  padding: 1.5rem;
+}
+
+.pricing-card .price h1:before {
+  content: "$";
+  font-size: 30px;
+  position: absolute;
+  margin-left: -1.2rem;
+  margin-top: .7rem;
+}
+
+.pricing-card .price h1:after {
+  content: "/mo";
+  font-size: 30px;
+  position: absolute;
+  margin-top: 3rem;
+}
+
+.btn-outline-white {
+  border: 2px solid #fff;
+  color: #fff!important;
+  background-color: transparent;
+}
+
+.pricing-card .striped li {
+  border-bottom: 1px solid rgba(153,153,153,.298039);
+  margin-bottom: 1rem;
+}

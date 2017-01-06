@@ -1,0 +1,45 @@
+.flex-card {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.monthGraph {
+	display:flex;
+	height:80%;
+	width:100%;
+
+}
+
+.monthCol {
+	height: 100%;
+	width: 8%;
+	background-color: #efefef;
+	margin: 3px;
+	box-shadow: inset 1px 1px 2px #ccc;
+	position: relative;
+
+}
+.monthLabels {
+	display: flex;
+	height:10%;
+	width:100%;
+}
+.monthLabel{
+	max-width: 8%;
+	width: 8%;
+	margin: 3px;
+	overflow:hidden;
+	height: 10px;
+	font-size: .6em;
+	text-align: center;
+}	
+.dataBar{
+	// position: absolute;
+ 	bottom: 0;
+  	left: 0;
+}
+
+.report-heading {
+	padding: 10px;
+	color: #fefefe;
+	margin: -0px -15px 0px -15px;
+}
