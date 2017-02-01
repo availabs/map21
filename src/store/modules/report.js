@@ -1,6 +1,6 @@
 /* @flow */
 import fetch from 'isomorphic-fetch'
-const HOST = 'http://npmrds.v2.availabs.org/'
+const HOST = 'https://dev.npmrds.availabs.org/api/'
 const KEY = 'SubterraneanHomesickAvailian'
 // ------------------------------------
 // Constants
