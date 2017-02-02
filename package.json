@@ -12,7 +12,6 @@
     "compile": "better-npm-run compile",
     "lint": "eslint bin build config server src tests",
     "lint:fix": "npm run lint -- --fix",
-    "prettier:fix": "better-npm-run prettier:fix",
     "start": "better-npm-run start",
     "dev": "better-npm-run dev",
     "test": "better-npm-run test",
@@ -58,9 +57,6 @@
     },
     "lint:fix": {
     
-    },
-    "prettier:fix": {
-      "command": "prettier-eslint \"bin/**/*.js\" \"build/**/*.js\" \"config/**/*.js\" \"server/**/*.js\" \"src/**/*.js\" \"tests/**/*.js\" --write --log --printWidth=50"
     },
     "start": {
       "command": "node bin/server",
@@ -146,8 +142,6 @@
     "mocha": "^3.0.1",
     "nodemon": "^1.10.2",
     "phantomjs-prebuilt": "^2.1.12",
-    "prettier-eslint": "^3.0.1",
-    "prettier-eslint-cli": "^1.1.0",
     "react-addons-test-utils": "^15.0.0",
     "redbox-react": "^1.2.10",
     "sinon": "^1.17.5",
