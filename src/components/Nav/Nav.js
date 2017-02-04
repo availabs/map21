@@ -1,14 +1,12 @@
 import React from 'react'
-// import NavDropdown from 'components/utils/NavDropdown'
 import { IndexLink, Link } from 'react-router'
 import { connect } from 'react-redux'
 import { logout } from 'store/modules/user'
 import './Nav.scss'
 
-class Nav extends React.Component {
+export class Nav extends React.Component {
 
   renderUser () {
-    console.log('props', this.props)
     return (
       <ul className='nav navbar-nav pull-right' style={{ float: 'right' }}>
         <li className='nav-item'>

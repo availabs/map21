@@ -18,7 +18,7 @@ class PerfReport extends React.Component {
   renderHighwayMeasure (measure, colors, size = 12, style = {}) {
     console.log('measures', this.props.measures, measure.key)
     return (
-      <div className={'col-md-' + size} style={style}>
+      <div className={'col-md-' + size} style={style} key={measure.key}>
         <div className='row flex-card' style={{ marginBottom: 10 }}>
           <div className='col-xs-12'>
             <h2 className='report-heading' style={{ backgroundColor: colors[0] }}>
@@ -36,10 +36,10 @@ class PerfReport extends React.Component {
               <div key={roadType} className={'col-md-' + 12 / measure.roadTypes.length}>
                 <PercentageMeasure
                   measures={this.props.measures}
-                  measure_type={measure.key}
-                  geo_type={this.props.type}
+                  measureType={measure.key}
+                  geoType={this.props.type}
                   geoId={this.props.geoId}
-                  road_type={roadType}
+                  roadType={roadType}
                   title={roadType}
                   colors={colors}
                 />
@@ -52,9 +52,8 @@ class PerfReport extends React.Component {
   }
 
   renderCountMeasure (measure, colors, size = 12) {
-    console.log('measures', this.props.measures, measure.key)
     return (
-      <div className={'col-xs-' + size}>
+      <div className={'col-xs-' + size} key={measure.key}>
         <div className='row flex-card' style={{ marginBottom: 10 }}>
           <div className='col-xs-12'>
             <h2 className='report-heading' style={{ backgroundColor: colors[0] }}>
@@ -72,10 +71,10 @@ class PerfReport extends React.Component {
               <div key={roadType} className={'col-md-' + 12 / measure.roadTypes.length}>
                 <CountMeasure
                   measures={this.props.measures}
-                  measure_type={measure.key}
-                  geo_type={this.props.type}
+                  measureType={measure.key}
+                  geoType={this.props.type}
                   geoId={this.props.geoId}
-                  road_type={roadType}
+                  roadType={roadType}
                   title={roadType}
                   colors={colors}
                 />
@@ -94,7 +93,8 @@ class PerfReport extends React.Component {
 
     let freightMeasures = this.props.measureInfo
       .filter(d => ['system_tttr', 'system_percent_milage_uncongested'].includes(d.key))
-      .map((d, i) => this.renderHighwayMeasure(d, colors[i + 2], 6, i === 0 ? { paddingRight: 20 } : { paddingLeft:20 }))
+      .map((d, i) => this.renderHighwayMeasure(d, colors[i + 2],
+                                               6, i === 0 ? { paddingRight: 20 } : { paddingLeft:20 }))
 
     return (
       <div>
@@ -134,9 +134,9 @@ class PerfReport extends React.Component {
 
 PerfReport.propTypes = {
   measures : React.PropTypes.object.isRequired,
+  measureInfo: React.PropTypes.array,
   geoId: React.PropTypes.string,
-  type: React.PropTypes.string,
-  meta: React.PropTypes.array
+  type: React.PropTypes.string
 }
 
 export default PerfReport

@@ -4,20 +4,20 @@ import './DropDown.scss'
 class Dropdown extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { 
-      open: false, 
+    this.state = {
+      open: false,
       selected: this.props.selected
     }
     this.toggle = this.toggle.bind(this)
     this.setSelected = this.setSelected.bind(this)
   }
-  
+
   toggle () {
     this.setState({ open: !this.state.open })
   }
-  
+
   setSelected (d) {
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       this.props.onChange(d)
     }
     this.toggle()
@@ -32,7 +32,7 @@ class Dropdown extends React.Component {
         <div className='dropdown-menu' style={{ display: this.state.open ? 'block' : 'none' }}>
           {this.props.options.map((d, i) => {
             return (
-              <a key={i} className='dropdown-item' onClick={this.setSelected.bind(null, d)} href='#'>{d}</a>
+              <a key={i} className='dropdown-item' onClick={() => this.setSelected(d)} href='#'>{d}</a>
             )
           })}
 
@@ -44,7 +44,10 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  onChange: React.PropTypes.func,
   options : React.PropTypes.array.isRequired,
+  prefix: React.PropTypes.string,
+  selected: React.PropTypes.string,
   title : React.PropTypes.element
 }
 
