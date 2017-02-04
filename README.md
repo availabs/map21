@@ -41,3 +41,6 @@ Interace to visualize performanace measures from MAP 21 legislation for section
   * https://developer.github.com/v3/repos/statuses/
   * https://github.com/blog/1227-commit-status-api
   * https://stackoverflow.com/questions/14274293/show-current-state-of-jenkins-build-on-github-repo/26910986#26910986
+
+### Testing connected-components:
+  * [Redux: Writing Tests](http://redux.js.org/docs/recipes/WritingTests.html#connected-components)

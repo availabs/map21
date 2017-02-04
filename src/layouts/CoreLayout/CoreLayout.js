@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from 'components/Nav'
+import Nav from 'components/Nav'
 import './CoreLayout.scss'
 import 'styles/core.scss'
 
 export const CoreLayout = ({ children }) => (
   <div className='container-fluid' >
-    <Header />
+    <Nav />
     <div className='row' style={{ overflowX: 'hidden' }}>
       {children}
     </div>

@@ -1,20 +1,28 @@
 import React from 'react'
 import './Pricing.scss'
+
 var PricingComponent = React.createClass({
   render: function () {
     return (
-
       <section className='section'>
         {/* Section heading */}
         <h1 className='section-heading'>Our pricing plans</h1>
         {/* Section description */}
-        <p className='section-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam. Quia, minima?</p>
+        <p className='section-description'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Fugit, error amet numquam iure provident voluptate esse quasi,
+            veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.
+          Quia, minima?
+        </p>
         {/* First row */}
         <div className='row'>
           {/* First column */}
           <div className='col-lg-4 col-md-12 mb-r'>
             {/* Pricing card */}
-            <div className='card-overlay pricing-card'style={{ backgroundImage: 'url("/design/logo5.png")', backgroundSize: 'cover' }}>
+            <div
+              className='card-overlay pricing-card'
+              style={{ backgroundImage: 'url("/design/logo5.png")', backgroundSize: 'cover' }}
+            >
               {/* Content */}
               <div className='white-text text-xs-center'>
                 <div className='card-block'>
@@ -51,7 +59,10 @@ var PricingComponent = React.createClass({
           {/* Second column */}
           <div className='col-lg-4 col-md-6 mb-r'>
             {/* Pricing card */}
-            <div className='card-overlay pricing-card' style={{ backgroundImage: 'url("/design/logo45.png")', backgroundSize: 'cover' }}>
+            <div
+              className='card-overlay pricing-card'
+              style={{ backgroundImage: 'url("/design/logo45.png")', backgroundSize: 'cover' }}
+            >
               {/* Content */}
               <div className='white-text text-xs-center'>
                 <div className='card-block'>
@@ -87,7 +98,10 @@ var PricingComponent = React.createClass({
 
           <div className='col-lg-4 col-md-6 mb-r'>
             {/* Pricing card */}
-            <div className='card-overlay pricing-card' style={{ backgroundImage: 'url("/design/logo44.png")', backgroundSize: 'cover' }}>
+            <div
+              className='card-overlay pricing-card'
+              style={{ backgroundImage: 'url("/design/logo44.png")', backgroundSize: 'cover' }}
+            >
               {/* Content */}
               <div className='white-text text-xs-center'>
                 <div className='card-block'>
@@ -128,3 +142,4 @@ var PricingComponent = React.createClass({
 })
 
 module.exports = PricingComponent
+

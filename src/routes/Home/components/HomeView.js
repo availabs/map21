@@ -10,21 +10,21 @@ class HomeView extends React.Component {
       state:''
     }
     // this.pagination = this.pagination.bind(this)
-    this.stateClick = this.stateClick.bind(this) 
+    this.stateClick = this.stateClick.bind(this)
   }
   stateClick (stateId) {
     console.log('st', stateId)
-    this.props.router.push('/r/'+stateId)
+    this.props.router.push('/r/' + stateId)
   }
 
   render () {
     return (
-       <div className='container-fluid homeBody' style={{ width: '100%' }}>
+      <div className='container-fluid homeBody' style={{ width: '100%' }}>
         <div className='container homeContent' style={{ zIndex:5 }}>
           <section className='section'>
             <div className='row'>
               <div className='col-xs-12'>
-                <h1 className='section-heading'></h1>
+                <h1 className='section-heading' />
                 <div style={{ padding: 5 }}>
                   <HexMap stateClick={this.stateClick} />
                 </div>
@@ -35,6 +35,10 @@ class HomeView extends React.Component {
       </div>
     )
   }
+}
+
+HomeView.propTypes = {
+  router: React.PropTypes.object
 }
 
 export default withRouter(HomeView)

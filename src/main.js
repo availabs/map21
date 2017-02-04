@@ -13,8 +13,8 @@ const initialState = {
     key: null,
     error: null
   }
-
 }
+
 // console.log('init', window.___INITIAL_STATE__)
 if (typeof (Storage) !== 'undefined' && localStorage.getItem('user')) {
   initialState.user.name = localStorage.getItem('user')
