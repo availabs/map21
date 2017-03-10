@@ -4,7 +4,7 @@
 //   avail: 'password'
 // }
 
-const HOST = "http://aauth.availabs.org/api/"
+const HOST = 'http://aauth.availabs.org/'
 
 // ------------------------------------
 // Constants
@@ -27,21 +27,20 @@ export function logout () {
     type: USER_LOGOUT
   }
 }
-// fetch("/echo/json/",
-// {
-//     method: "POST",
-//     body: data
-// })
+
 export const login = (email, password) => {
+  console.log('test 123', JSON.stringify({ email, password }))
   return (dispatch) => {
     return fetch(`${HOST}login/auth`,
         {
-          method: "POST",
-          body: new FormData().append("json", JSON.stringify({ email, password }))
+          method: 'POST',
+          body: new FormData().append('json', JSON.stringify({ email, password }))
+          
         })
       .then(response => response.json())
       .then(json => {
-        return dispatch(receiveAuthResponse(json))
+        console.log('json', json)
+        return dispatch(receiveAuthResponse(json.message))
       })
   }
 }
@@ -67,34 +66,18 @@ const initialState = {
 const ACTION_HANDLERS = {
   [USER_LOGIN] : (state, action) => {
     var newState = Object.assign({}, state)
-    // console.log('login attempt', action.user, action.pass, users[action.user])
-    // if (users[action.user] && users[action.user] === action.pass) {
-    //   newState.name = action.user
-    //   newState.key = 'as09fga9-s8dghaskjdfj2io4hg[iaefdhg;skdgj0929i4ehgoqiwai'
-    //   if (typeof (Storage) !== 'undefined') {
-    //     localStorage.setItem('user', action.user)
-    //     localStorage.setItem('key', 'as09fga9-s8dghaskjdfj2io4hg[iaefdhg;skdgj0929i4ehgoqiwai')
-    //   }
-    //   delete newState.error
-    //   return newState
-    // }
-    // newState.error = 'Invalid User or Pass'
-    let user = action.res;
-    newState = user;
+    console.log('login attempt', action.res)
+
+    if (action.res.type === 'error') {
+      newState.error = action.res.text
+    } else if (action.res.id === -1) {
+      action.res
+      newState = action.res
       if (typeof (Storage) !== 'undefined') {
-        localStorage.setItem('token', user.token)
-        localStorage.setItem('status', user.status)
-        localStorage.setItem('id', user.id)
-        if(user.userGroup){
-          localStorage.setItem('userType', user.userGroup.type)        
-        }
+        localStorage.setItem('user', JSON.stringify(action.res))
       }
-      if (user.id == -1) {
-        localStorage.setItem('token', '')
-        localStorage.setItem('userType', '')
-        localStorage.setItem('id', -1)
-        localStorage.setItem('status',false)
-      }
+    }
+
     return newState
   },
   [USER_LOGOUT] : (state, action) => {
