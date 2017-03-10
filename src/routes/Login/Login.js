@@ -103,7 +103,7 @@ class Login extends React.Component {
   }
 
   render () {
-    if (this.props.user.key) {
+    if (this.props.user.token) {
       this.props.router.push('/')
     }
     return this.renderLogin()

@@ -71,7 +71,7 @@ Nav.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  username : state.user ? state.user.name : null
+  username : state.user ? state.user.userName : null
 })
 
 export default connect(mapStateToProps, { logout })(Nav)

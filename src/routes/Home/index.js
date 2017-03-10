@@ -12,7 +12,7 @@ export default (store) => ({
       console.log('user key', nextState.user, store.getState().user)
 
       let HomeView = require('./components/LandingView').default
-      if (store.getState().user.key) {
+      if (store.getState().user.token) {
         HomeView = require('./components/HomeView').default
       }
 

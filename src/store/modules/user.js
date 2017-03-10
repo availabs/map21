@@ -31,17 +31,19 @@ export function logout () {
 export const login = (email, password) => {
   console.log('test 123', JSON.stringify({ email, password }))
   return (dispatch) => {
-    return fetch(`${HOST}login/auth`,
-        {
-          method: 'POST',
-          body: new FormData().append('json', JSON.stringify({ email, password }))
-          
-        })
-      .then(response => response.json())
-      .then(json => {
-        console.log('json', json)
-        return dispatch(receiveAuthResponse(json.message))
-      })
+    return fetch(`${HOST}login/auth`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(json => {
+      console.log('json', json)
+      return dispatch(receiveAuthResponse(json.message || json))
+    })
   }
 }
 
@@ -53,12 +55,7 @@ export const actions = {
 // -------------------------------------
 // Initial State
 // -------------------------------------
-const initialState = {
-  name: null,
-  key: null,
-  error: null,
-  id: null
-}
+const initialState = {}
 
 // ------------------------------------
 // Action Handlers
@@ -70,14 +67,13 @@ const ACTION_HANDLERS = {
 
     if (action.res.type === 'error') {
       newState.error = action.res.text
-    } else if (action.res.id === -1) {
+    } else if (action.res.id !== -1) {
       action.res
       newState = action.res
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem('user', JSON.stringify(action.res))
       }
-    }
-
+    }   
     return newState
   },
   [USER_LOGOUT] : (state, action) => {
